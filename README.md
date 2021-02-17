@@ -1,3 +1,3 @@
 # README
 
-resturant review app
+resturants review app
