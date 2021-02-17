@@ -1,0 +1,11 @@
+<div class="container box d-flex justify-content-center align-content-center">
+    <div class="card p-3 w-100">
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :category, collection: Restaurant::CATEGORY %>
+  <%= f.input :phone_number %>
+  <%= f.submit %>
+  <% end %>
+    </div>
+</div>

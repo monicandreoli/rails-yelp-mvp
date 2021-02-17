@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-dark py-3 monica">
+    <form class="form-inline">
+    <%= link_to 'Create new Restaurant', new_restaurant_path, class: 'link' %>
+    </form>
+</nav>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <% @restaurants.each do |restaurant| %>
+        <div class="col-5 m-1 card p-0">
+        <div class="navbar-dark bg-dark p-3 text-light">
+            <p><small><%= restaurant.category %> restaurant</small></p>
+            <h4><%= restaurant.name %></h4>
+        </div>
+        <div class="p-3 monica">
+            <p><i class="fas fa-map-marker-alt"></i> <%= restaurant.address %></p>
+            <p><i class="fas fa-phone"></i> <%= restaurant.phone_number %></p>
+            <p><i class="fas fa-star"></i> <%= restaurant.stars %></p>
+            <%= link_to 'restaurant details', restaurant_path(restaurant) %>
+        </div>
+        </div>
+        <% end %>
+    </div>
+</div>

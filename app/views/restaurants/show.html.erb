@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <div class="card p-4">
+        <p><small><%= @restaurant.category %> restaurant</small></p>
+        <h4><%= @restaurant.name %></h4>
+        <p><i class="fas fa-map-marker-alt"></i> <%= @restaurant.address %></p>
+        <p><i class="fas fa-phone"></i> <%= @restaurant.phone_number %></p>
+        <p><i class="fas fa-star"></i> <%= @restaurant.stars %></p>
+
+        <ul class="list-group">
+            <% @restaurant.reviews.each do |review| %>
+            <li class="list-group-item"><%= review.content %></li>
+             <%= link_to "Remove", review_path(review), method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
+        </ul>
+<div class="d-flex mt-3 justify-content-center">
+        <%= link_to 'go back', restaurants_path, class: "btn btn-dark mr-2" %>
+        <%= link_to 'edit', edit_restaurant_path(@restaurant), class: "btn btn-dark mr-2" %>
+        <%= link_to 'destroy', restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-dark mr-2"%>
+        <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-dark" %>
+</div>
+    </div>
+</div>
